@@ -8,9 +8,9 @@ ciudad = "Madrid"
 latitud = 40.4168
 longitud = -3.7038
 
-api_web = "https://api.sunrise-sunset.org/json?lat=%s&lng=%s" % (latitud, longitud)
+api_web = "https://api.sunrise-sunset.org/json?"
 
-url_requests = api_web
+url_requests = api_web + urllib.parse.urlencode({"lat": latitud, "lng":longitud})
 
 response = requests.get(url_requests).json()
 
